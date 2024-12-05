@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once __DIR__ . '/../src/Lib/Psr4AutoloaderClass.php';
 
@@ -8,6 +9,12 @@ $chargeurDeClasse->register();
 // enregistrement d'une association "espace de nom" → "dossier"
 $chargeurDeClasse->addNamespace('App\NDI', __DIR__ . '/../src');
 
+// Vérifier si l'utilisateur a validé le CAPTCHA
+if (!isset($_SESSION['captcha_valide'])) {
+    $_SESSION['captcha_valide'] = false;
+    header('Location: ../src/captcha/captcha.php');
+    exit();
+}
 /*
 
 if (isset($_GET['action'])) {
