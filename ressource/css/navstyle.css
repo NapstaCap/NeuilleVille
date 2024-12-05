@@ -1,0 +1,98 @@
+/* Fond du pop-up */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Départ invisible */
+    pointer-events: none; /* Désactive les clics lorsqu'il est caché */
+    transition: opacity 0.4s ease; /* Transition fluide */
+    z-index: 1000;
+}
+
+/* Pop-up visible */
+.popup.show {
+    opacity: 1; /* Devient visible */
+    pointer-events: auto; /* Active les clics */
+}
+
+/* Contenu du pop-up */
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 650px;
+    transform: scale(0.8); /* Départ avec réduction */
+    transition: transform 0.4s ease; /* Transition de taille */
+}
+
+/* Quand le pop-up est visible */
+.popup.show .popup-content {
+    transform: scale(1); /* Taille normale */
+}
+
+/* Bouton de fermeture */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+#chatbox {
+    width: 400px;
+    height: 500px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+}
+
+#messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+.message {
+    margin: 5px 0;
+}
+.user {
+    text-align: right;
+    color: blue;
+}
+.bot {
+    text-align: left;
+    color: green;
+}
+#input-box {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+#input-box input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 0 0 0 10px;
+}
+#input-box button {
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 0 10px 0;
+}
