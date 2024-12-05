@@ -26,7 +26,7 @@ if (isset($_GET['controleur'])) {
     }
 }
 
-$nomDeClasseControleur = ("App\Covoiturage\Controleur\Controleur" . ucfirst($controleur));
+$nomDeClasseControleur = ("App\NDI\Controleur\Controleur" . ucfirst($controleur));
 if (class_exists($nomDeClasseControleur)) {
     $methods = get_class_methods($nomDeClasseControleur);
     if (in_array($action, $methods)) {
