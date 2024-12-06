@@ -1,6 +1,7 @@
 <?php
 
 use App\NDI\Controleur\ControleurCaptcha;
+use App\NDI\Controleur\ControleurGenerique;
 
 session_start();
 
@@ -34,7 +35,7 @@ if (!isset($_SESSION['captcha_valide']) || $_SESSION['captcha_valide'] !== true)
 
     // Ajoutez ici le code pour charger le contenu principal de votre application
      
-   \App\NDI\Controleur\ControleurChatBox::afficherChatBox();
+   ControleurGenerique::afficherAccueil();
     /*
     if (isset($_GET['action'])) {
         $action = $_GET['action'];

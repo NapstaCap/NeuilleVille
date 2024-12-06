@@ -67,7 +67,7 @@ p {
     position: relative;
 }
 #eaubg {
-    height: 1000vh; /* Hauteur souhaitée */
+    height: 300vh; /* Hauteur souhaitée */
     background-image: url('../img/BG_EAU.png'); /* Image de fond */
     background-repeat: repeat;
     background-size: auto;
@@ -75,8 +75,8 @@ p {
 }
 
 .fish {
-    width: 50px; /* Largeur du poisson */
-    height: 50px; /* Hauteur du poisson */
+    width: 100px; /* Largeur du poisson */
+    height: 100px; /* Hauteur du poisson */
     background-size: cover;
     position: absolute;
     cursor: pointer;
@@ -105,5 +105,34 @@ p {
 .fish:hover::after {
     display: block; /* Affiché au survol */
 }
+/* Bloc pour afficher le texte */
+#textDisplay {
+    font-family: Arial, sans-serif;
+    position: fixed; /* Fixe pour rester visible en haut */
+    bottom: 20px; /* Distance du bas de l'écran */
+    left: 50%;
+    transform: translateX(-50%); /* Centre horizontalement */
+    width: 90%;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    line-height: 1.5;
+    overflow: hidden; /* Coupe le texte qui dépasse */
+    text-align: justify;
+    white-space: pre-line; /* Permet d'interpréter les sauts de ligne */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#textDisplay.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+
+
+
 
 
