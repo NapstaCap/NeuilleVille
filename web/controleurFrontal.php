@@ -34,7 +34,7 @@ if (!isset($_SESSION['captcha_valide']) || $_SESSION['captcha_valide'] !== true)
 
     // Ajoutez ici le code pour charger le contenu principal de votre application
      
-    ControleurCaptcha::afficherAccueil();
+    \App\NDI\Controleur\ControleurChatBox::afficherChatBox();
     /*
     if (isset($_GET['action'])) {
         $action = $_GET['action'];

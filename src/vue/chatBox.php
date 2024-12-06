@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot AI</title>
-    <link rel="stylesheet" href="../../ressource/chatBot.css">
-</head>
-<body>
 <header>
     <h1>Capitaine Océanic - Explorez les mystères des systèmes humains et océaniques</h1>
     <p>Posez une question et laissez le Capitaine vous guider dans les mers du savoir.</p>
@@ -35,7 +26,7 @@
 
 
     <form id="chat-form" method="POST">
-        <input type="text" id="user-input" name="message" placeholder="Votre message" required>
+        <label for="user-input"></label><input type="text" id="user-input" name="message" placeholder="Votre message" required>
         <button type="submit">Envoyer</button>
     </form>
 </div>
@@ -54,7 +45,7 @@
         input.value = '';
 
         // Appeler le backend PHP pour récupérer la réponse du chatbot
-        const response = await fetch('chat.php', {
+        const response = await fetch('../src/chatBot/chat.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `message=${encodeURIComponent(userMessage)}`
@@ -81,5 +72,3 @@
         return text;
     }
 </script>
-</body>
-</html>

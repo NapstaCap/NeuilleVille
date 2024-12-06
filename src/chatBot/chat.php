@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'Grog' => 'Ah, le Grog ! Un mélange savoureux de kérosène, propylène glycol, huile pour batterie, et d\'autres ingrédients impossibles à prononcer. À consommer avec modération (ou pas) !',
             'Qui es-tu ?' => 'Je suis Guybrush Threepwood, un puissant pirate !',
             'ouvrir le coffre' => 'Le coffre est verrouillé. La clé ? Elle est probablement coincée dans une grotte hantée, derrière un singe à trois têtes.',
-            'danse' => ' Tu ne peux pas prendre la clé, elle est derrière le singe... mais fais une danse du pirate en attendant ! <div class="dancing-image"><img src="../../ressource/dancingpirate.png" alt="Pirate qui danse" /></div>',
+            'danse' => ' Tu ne peux pas prendre la clé, elle est derrière le singe... mais fais une danse du pirate en attendant ! <div class="dancing-image"><img src="../src/ressources/img/dancingpirate.png" alt="Pirate qui danse" /></div>',
         ];
 
         if (isset($predefinedResponses[$userMessage])) {
@@ -75,4 +75,3 @@ function getHuggingFaceResponse($userInput)
 
     return json_decode($response, true);
 }
-?>
