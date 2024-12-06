@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
-<link rel="stylesheet">
+<link rel="stylesheet" href="<?php
+
+/** @var string $cheminCSS */
+echo $cheminCSS;
+?>">
 <head>
     <meta charset="UTF-8">
     <title> <?php
@@ -23,4 +27,3 @@
 </footer>
 </body>
 </html>
-

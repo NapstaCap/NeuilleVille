@@ -1,22 +1,37 @@
 <?php
 session_start();
 
-if (!isset($_POST['reponse'])) {
-    header('Location: captcha.php');
-    exit();
-}
+if (isset($_SESSION['captcha_type']) && isset($_POST['reponse'])) {
+    $type = $_SESSION['captcha_type'];
+    $reponseAttendue = $_SESSION['captcha_reponse'];
+    $utilisateurReponse = $_POST['reponse'];
 
-$reponse_utilisateur = strtolower(trim($_POST['reponse']));
-$reponse_attendue = strtolower($_SESSION['captcha_reponse'] ?? '');
+    if ($type === 'text') {
+        if (strtolower(trim($utilisateurReponse)) === strtolower($reponseAttendue)) {
+            // Le CAPTCHA est validé
+            $_SESSION['captcha_valide'] = true;
+            unset($_SESSION['captcha_en_cours']); // Supprimer l'état "en cours"
+            header("Location: /controleurFrontal.php"); // Rediriger vers le contrôleur principal
+            exit();
+        } else {
+            echo "<div class='error-message'>Mauvaise réponse, essayez encore.</div>";
+        }
+    } elseif ($type === 'checkbox') {
+        sort($reponseAttendue);
+        sort($utilisateurReponse);
 
-if ($reponse_utilisateur === $reponse_attendue) {
-    // Réponse correcte, passer à la page suivante
-    unset($_SESSION['captcha_reponse']); // Nettoyer la session
-    echo "CAPTCHA validé ! Vous pouvez accéder au site.";
-    // Rediriger vers le site principal
-    // header('Location: accueil.php');
+        if ($reponseAttendue === $utilisateurReponse) {
+            // Le CAPTCHA est validé
+            $_SESSION['captcha_valide'] = true;
+            unset($_SESSION['captcha_en_cours']); // Supprimer l'état "en cours"
+            header("Location: src/web/controleurFrontal.php"); // Rediriger vers le contrôleur principal
+            exit();
+        } else {
+            echo "<div class='error-message'>Mauvaise combinaison, essayez encore.</div>";
+        }
+    } else {
+        echo "<div class='error-message'>Type de question inconnu.</div>";
+    }
 } else {
-    // Réponse incorrecte, retour au CAPTCHA
-    echo "Réponse incorrecte. Veuillez réessayer.";
-    echo '<br><a href="captcha.php">Réessayer</a>';
+    echo "<div class='error-message'>Erreur : aucune question en cours.</div>";
 }
