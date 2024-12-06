@@ -33,7 +33,8 @@ if (!isset($_SESSION['captcha_valide']) || $_SESSION['captcha_valide'] !== true)
     unset($_SESSION['captcha_en_cours']); // Supprimer l'état "en cours" si nécessaire
 
     // Ajoutez ici le code pour charger le contenu principal de votre application
-
+     
+    ControleurCaptcha::afficherAccueil();
     /*
     if (isset($_GET['action'])) {
         $action = $_GET['action'];
