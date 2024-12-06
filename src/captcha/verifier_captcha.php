@@ -11,7 +11,7 @@ if (isset($_SESSION['captcha_type']) && isset($_POST['reponse'])) {
             // Le CAPTCHA est validé
             $_SESSION['captcha_valide'] = true;
             unset($_SESSION['captcha_en_cours']); // Supprimer l'état "en cours"
-            header("Location: /controleurFrontal.php"); // Rediriger vers le contrôleur principal
+            header("Location: /NeuilleVille/web/controleurFrontal.php");
             exit();
         } else {
             echo "<div class='error-message'>Mauvaise réponse, essayez encore.</div>";
@@ -24,7 +24,7 @@ if (isset($_SESSION['captcha_type']) && isset($_POST['reponse'])) {
             // Le CAPTCHA est validé
             $_SESSION['captcha_valide'] = true;
             unset($_SESSION['captcha_en_cours']); // Supprimer l'état "en cours"
-            header("Location: src/web/controleurFrontal.php"); // Rediriger vers le contrôleur principal
+            header("Location: /NeuilleVille/web/controleurFrontal.php");
             exit();
         } else {
             echo "<div class='error-message'>Mauvaise combinaison, essayez encore.</div>";
