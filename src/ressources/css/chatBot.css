@@ -14,14 +14,22 @@
 
 body {
     margin: 0;
-    padding: 0;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23967259" opacity="0.2"><path d="M0 0 L50 50 L0 100 Z"/><path d="M100 0 L50 50 L100 100 Z"/></g></svg>');
     background-color: var(--parchment);
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: flex-start; /* Centrer verticalement */
+    padding: 20px;
+    position: relative; /* Nécessaire pour positionner le footer en bas */
+    overflow: hidden; /* Empêcher le footer de déborder */
+}
+
+.container {
+    display: flex;
+    gap: 20px;  /* Espace entre le header et le chatbox */
+    width: 100%;
+    justify-content: center;  /* Aligner le header à gauche et le chat à droite */
     align-items: center;
-    min-height: 100vh;
-    perspective: 1000px;
 }
 
 header {
@@ -31,21 +39,9 @@ header {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    margin-bottom: 20px;
     transform: rotate(-2deg);
-    max-width: 600px;
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    font-weight: bold;
-}
-
-header p {
-    font-style: italic;
-    color: var(--aged-paper);
+    max-width: 750px;
+    flex-shrink: 0;
 }
 
 #chatbox {
@@ -62,11 +58,26 @@ header p {
     overflow: hidden;
     transform: rotate(2deg);
     transition: transform 0.3s ease;
+    flex-grow: 1;
+    margin-bottom: 20px;
 }
 
 #chatbox:hover {
     transform: rotate(0deg) scale(1.02);
 }
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: bold;
+}
+
+header p {
+    font-style: italic;
+    color: var(--aged-paper);
+}
+
 
 #messages {
     flex-grow: 1;
@@ -402,4 +413,18 @@ body::after {
     50% { transform: rotate(-10deg); }
     75% { transform: rotate(10deg); }
     100% { transform: rotate(0deg); }
+}
+
+/* Fixer le footer en bas */
+footer {
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+    background-color: var(--rum-brown);
+    color: var(--parchment);
+    padding: 10px;
+    font-size: 0.8em;
+    border-top: 3px dashed var(--old-leather);
+    box-shadow: 0 -4px 6px rgba(0,0,0,0.3);
 }

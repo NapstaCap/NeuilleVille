@@ -1,34 +1,41 @@
-<header>
-    <h1>Capitaine Océanic - Explorez les mystères des systèmes humains et océaniques</h1>
-    <p>Posez une question et laissez le Capitaine vous guider dans les mers du savoir.</p>
-</header>
-<div id="chatbox">
-    <div id="messages"></div>
-    <!-- Bulles de proposition de questions -->
-    <div id="suggestions" class="suggestions">
-        <p><strong>Proposez une question à notre chatbot !</strong></p>
-        <div class="suggestion-bubble" onclick="setInput('Comment l’océan aide-t-il à maintenir l’équilibre de notre planète ?')">
-            Comment l’océan aide-t-il à maintenir l’équilibre de notre planète ?
+<div class="container">
+    <header>
+        <h1>Capitaine Océanic - Explorez les mystères des systèmes humains et océaniques</h1>
+        <p>Posez une question et laissez le Capitaine vous guider dans les mers du savoir.</p>
+    </header>
+    <div id="chatbox">
+        <div id="messages"></div>
+        <!-- Bulles de proposition de questions -->
+        <div id="suggestions" class="suggestions">
+            <p><strong>Proposez une question à notre chatbot !</strong></p>
+            <div class="suggestion-bubble"
+                 onclick="setInput('Comment l’océan aide-t-il à maintenir l’équilibre de notre planète ?')">
+                Comment l’océan aide-t-il à maintenir l’équilibre de notre planète ?
+            </div>
+            <div class="suggestion-bubble"
+                 onclick="setInput('Quelles sont les conséquences d’un océan malade sur le corps humain ?')">
+                Quelles sont les conséquences d’un océan malade sur le corps humain ?
+            </div>
+            <div class="suggestion-bubble"
+                 onclick="setInput('Pourquoi préserver les océans revient-il à protéger notre santé ?')">
+                Pourquoi préserver les océans revient-il à protéger notre santé ?
+            </div>
+            <div class="suggestion-bubble"
+                 onclick="setInput('Le cycle de l’eau et nos poumons sont-ils vraiment liés ?')">
+                Le cycle de l’eau et nos poumons sont-ils vraiment liés ?
+            </div>
+            <div class="suggestion-bubble" onclick="setInput('Quels gestes simples pour aider à sauver les océans ?')">
+                Quels gestes simples pour aider à sauver les océans ?
+            </div>
         </div>
-        <div class="suggestion-bubble" onclick="setInput('Quelles sont les conséquences d’un océan malade sur le corps humain ?')">
-            Quelles sont les conséquences d’un océan malade sur le corps humain ?
-        </div>
-        <div class="suggestion-bubble" onclick="setInput('Pourquoi préserver les océans revient-il à protéger notre santé ?')">
-            Pourquoi préserver les océans revient-il à protéger notre santé ?
-        </div>
-        <div class="suggestion-bubble" onclick="setInput('Le cycle de l’eau et nos poumons sont-ils vraiment liés ?')">
-            Le cycle de l’eau et nos poumons sont-ils vraiment liés ?
-        </div>
-        <div class="suggestion-bubble" onclick="setInput('Quels gestes simples pour aider à sauver les océans ?')">
-            Quels gestes simples pour aider à sauver les océans ?
-        </div>
+
+
+        <form id="chat-form" method="POST">
+            <label for="user-input"></label><input type="text" id="user-input" name="message"
+                                                   placeholder="Votre message" required>
+            <button type="submit">Envoyer</button>
+        </form>
     </div>
-
-
-    <form id="chat-form" method="POST">
-        <label for="user-input"></label><input type="text" id="user-input" name="message" placeholder="Votre message" required>
-        <button type="submit">Envoyer</button>
-    </form>
 </div>
 
 <script>
@@ -47,7 +54,7 @@
         // Appeler le backend PHP pour récupérer la réponse du chatbot
         const response = await fetch('../src/chatBot/chat.php', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: `message=${encodeURIComponent(userMessage)}`
         });
 
