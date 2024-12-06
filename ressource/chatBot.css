@@ -1,179 +1,356 @@
+:root {
+    --parchment: #f2e6d0;
+    --aged-paper: #e6d8bd;
+    --ink-blue: #1a4b84;
+    --treasure-map-green: #2f4f30;
+    --old-leather: #8b4513;
+    --rum-brown: #5d4037;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Papyrus', 'Comic Sans MS', cursive;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23967259" opacity="0.2"><path d="M0 0 L50 50 L0 100 Z"/><path d="M100 0 L50 50 L100 100 Z"/></g></svg>');
+    background-color: var(--parchment);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
-    background: linear-gradient(135deg, #4a90e2 0%, #3f51b5 100%);
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-    box-sizing: border-box;
+    perspective: 1000px;
 }
 
 header {
     text-align: center;
-    color: white;
-    max-width: 600px;
+    background-color: var(--rum-brown);
+    color: var(--parchment);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     margin-bottom: 20px;
-    padding: 0 15px;
+    transform: rotate(-2deg);
+    max-width: 600px;
 }
 
 header h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 2.5em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: bold;
 }
 
 header p {
-    font-size: 1em;
-    opacity: 0.9;
+    font-style: italic;
+    color: var(--aged-paper);
 }
 
 #chatbox {
     width: 100%;
-    max-width: 500px;
-    height: 700px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    max-width: 650px;
+    height: 820px;
+    background-color: var(--aged-paper);
+    border: 15px solid var(--old-leather);
+    border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%238B4513"/><path d="M0 0 L100 0 L0 100 Z" fill="%23D2691E"/><path d="M100 0 L0 100 L100 100 Z" fill="%23D2691E"/></svg>') 30 stretch;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
+}
+
+#chatbox:hover {
+    transform: rotate(0deg) scale(1.02);
 }
 
 #messages {
     flex-grow: 1;
     overflow-y: auto;
     padding: 20px;
-    background-color: #f9f9fc;
+    background-color: rgba(255,255,255,0.7);
     display: flex;
     flex-direction: column;
+    border-bottom: 3px dashed var(--rum-brown);
 }
 
 #suggestions {
-    background-color: #f0f4f8;
+    background-color: var(--treasure-map-green);
+    color: var(--parchment);
     padding: 15px;
-    border-top: 1px solid #e8e8e8;
-    border-bottom: 1px solid #e8e8e8;
-}
-
-#suggestions p {
-    margin: 0 0 10px 0;
     text-align: center;
-    color: #3f51b5;
 }
 
 .suggestion-bubble {
-    background-color: #e6f2ff;
-    border: 1px solid #4a90e2;
-    color: #3f51b5;
+    background-color: var(--rum-brown);
+    color: var(--parchment);
     padding: 10px;
-    margin: 5px;
+    margin: 10px;
     border-radius: 20px;
-    text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.9em;
+    display: inline-block;
 }
 
 .suggestion-bubble:hover {
-    background-color: #4a90e2;
-    color: white;
-    transform: scale(1.05);
+    transform: scale(1.1) rotate(-5deg);
+    background-color: var(--ink-blue);
 }
 
 #chat-form {
     display: flex;
     padding: 15px;
-    background-color: white;
-    border-top: 1px solid #e8e8e8;
+    background-color: var(--old-leather);
 }
 
 #user-input {
     flex-grow: 1;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 25px;
+    padding: 12px;
+    border: 3px solid var(--ink-blue);
+    border-radius: 10px;
     margin-right: 10px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-#user-input:focus {
-    outline: none;
-    border-color: #3f51b5;
+    background-color: var(--parchment);
+    color: var(--rum-brown);
 }
 
 button {
-    background-color: #3f51b5;
-    color: white;
+    background-color: var(--ink-blue);
+    color: var(--parchment);
     border: none;
     padding: 12px 20px;
-    border-radius: 25px;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #4a90e2;
-}
-
-button:active {
-    transform: scale(0.95);
+    background-color: var(--treasure-map-green);
+    transform: scale(1.05);
 }
 
 .user, .bot {
     max-width: 80%;
-    margin-bottom: 15px;
-    padding: 12px 15px;
-    border-radius: 15px;
-    clear: both;
-    align-self: flex-start;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 20px;
+    position: relative;
 }
 
 .user {
-    background-color: #3f51b5;
-    color: white;
+    background-color: var(--ink-blue);
+    color: var(--parchment);
     align-self: flex-end;
     margin-left: auto;
 }
 
 .bot {
-    background-color: #f1f0f5;
-    color: #333;
+    background-color: var(--treasure-map-green);
+    color: var(--parchment);
     align-self: flex-start;
 }
 
+.bot::before, .user::before {
+    content: '🏴‍☠️';
+    position: absolute;
+    top: -10px;
+    font-size: 24px;
+}
+
+.bot::before { left: -10px; }
+.user::before { right: -10px; }
+
+@media (max-width: 600px) {
+    #chatbox {
+        width: 95%;
+        height: 90vh;
+        border-width: 10px;
+    }
+}
+
+/* Scrollbar Styling */
 #messages::-webkit-scrollbar {
-    width: 8px;
+    width: 12px;
 }
 
 #messages::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--aged-paper);
 }
 
 #messages::-webkit-scrollbar-thumb {
-    background: #3f51b5;
-    border-radius: 4px;
+    background: var(--rum-brown);
+    border-radius: 6px;
 }
 
 #messages::-webkit-scrollbar-thumb:hover {
-    background: #4a90e2;
+    background: var(--ink-blue);
 }
 
-@media (max-width: 600px) {
+/* Treasure Map Effect */
+.treasure-map-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.treasure-map-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(150, 114, 89, 0.1) 10px,
+            rgba(150, 114, 89, 0.1) 20px
+    );
+    pointer-events: none;
+}
+
+body::before, body::after {
+    content: '';
+    position: fixed;
+    background-repeat: repeat-x;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+body::before {
+    top: 0;
+    height: 150px;
+    background-image: linear-gradient(
+            transparent,
+            rgba(38, 166, 154, 0.2),
+            rgba(38, 166, 154, 0.4)
+    );
+    animation: wave-top 15s linear infinite;
+}
+
+body::after {
+    bottom: 0;
+    height: 150px;
+    background-image: linear-gradient(
+            rgba(38, 166, 154, 0.4),
+            rgba(38, 166, 154, 0.2),
+            transparent
+    );
+    animation: wave-bottom 15s linear infinite;
+}
+
+@keyframes wave-top {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 0; }
+}
+
+@keyframes wave-bottom {
+    0% { background-position: 1000px 0; }
+    100% { background-position: 0 0; }
+}
+
+/* Décoration océanique pour les messages */
+.bot::after, .user::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    width: 50px;
+    height: 15px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 15"><path d="M0,15 Q12.5,0 25,15 Q37.5,30 50,15" fill="none" stroke="%23265073" stroke-width="2"/></svg>');
+    background-repeat: repeat-x;
+    opacity: 0.7;
+}
+
+.bot::after { left: 10px; }
+.user::after { right: 10px; }
+
+/* Bulles et écume */
+.suggestion-bubble::before {
+    content: '🌊';
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    font-size: 20px;
+}
+
+/* Animation de bulles d'océan */
+@keyframes ocean-bubble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.suggestion-bubble {
+    position: relative;
+    animation: ocean-bubble 3s ease-in-out infinite;
+}
+
+/* Effet parchemin avec texture maritime */
+#chatbox {
+    background-image:
+            linear-gradient(
+                    rgba(255,255,255,0.7),
+                    rgba(38, 166, 154, 0.1)
+            ),
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><line x1="0" y1="0" x2="200" y2="200" stroke="%23265073" stroke-width="0.5" stroke-dasharray="5,5"/><line x1="200" y1="0" x2="0" y2="200" stroke="%23265073" stroke-width="0.5" stroke-dasharray="5,5"/></svg>');
+    background-blend-mode: overlay;
+}
+
+/* Indicateur de profondeur océanique */
+#messages {
+    background:
+            linear-gradient(
+                    to bottom,
+                    rgba(38, 166, 154, 0.1),
+                    rgba(38, 166, 154, 0.3)
+            );
+    border-bottom: 5px dotted rgba(38, 166, 154, 0.5);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    #chatbox {
+        max-width: 95%;
+        height: 700px;
+    }
+
+    header {
+        max-width: 95%;
+    }
+
+    .suggestion-bubble {
+        flex-basis: calc(100% - 20px);
+    }
+}
+
+@media screen and (max-width: 768px) {
     body {
         padding: 10px;
     }
 
     #chatbox {
-        width: 95%;
-        height: 90vh;
+        height: 600px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    #user-input, button {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #chatbox {
+        height: 500px;
     }
 
     header h1 {
@@ -183,6 +360,31 @@ button:active {
     header p {
         font-size: 0.9em;
     }
+
+    #suggestions {
+        padding: 10px;
+    }
+
+    .suggestion-bubble {
+        padding: 8px;
+    }
+}
+
+/* Easter egg : petit poisson */
+#messages::after {
+    content: '🐟';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 30px;
+    opacity: 0.3;
+    animation: swim 10s linear infinite;
+}
+
+@keyframes swim {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(-20px) rotate(-10deg); }
+    75% { transform: translateX(20px) rotate(10deg); }
 }
 
 .dancing-image {
