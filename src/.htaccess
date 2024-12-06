@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^chatBot/chat\.php$ /chatBot/chat.php [L]
+</IfModule>
