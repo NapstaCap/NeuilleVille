@@ -1,0 +1,110 @@
+:root {
+    --width:50px;
+    --height:calc(var(--width) / 2);
+}
+
+.ball {
+    width: var(--width);
+    height: var(--height);
+    background: url('../img/Lyreco.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    opacity: 0.25;
+    cursor: pointer;
+}
+
+.ballRight {
+    animation: toRight linear 30s infinite alternate, bounce linear 30s infinite alternate;
+}
+
+.ballLeft {
+    animation: toLeft linear 30s infinite alternate, bounce linear 30s infinite alternate;
+}
+
+@keyframes bounce {
+    0% {
+        top: 0;
+    }
+    48% {
+    }
+    50% {
+        top: calc(100% - var(--height));
+    }
+    52% {
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes toRight {
+
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: calc(100% - var(--width));
+    }
+}
+
+@keyframes toLeft {
+
+    0% {
+        right: 0;
+    }
+
+    100% {
+        right: calc(100% - var(--width));
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.goutte {
+    background-image: url("../img/goutte.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 512px;
+    height: 512px;
+    z-index: 1000;
+}
+.infobulle {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 512px;
+    height: 512px;
+    cursor: pointer;
+    animation: zoomIn linear 1s alternate;
+    z-index: 1000;
+    text-align: center;
+}
+.infobulle p {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    z-index: 2;
+    color: white;
+    font-size: 18px;
+}
+
+.infobulleShow{
+    display: block;
+    cursor: pointer;
+    animation: zoomIn linear 1s alternate;
+}
