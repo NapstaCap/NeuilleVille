@@ -12,15 +12,9 @@ echo $cheminCSS;
          * @var string $titre
          */
         echo $titre; ?></title>
-    <link rel="stylesheet" href="../ressources/css/logo.css">
 </head>
 <body>
 <main>
-    <div class="ball"></div>
-    <div class="infobulle">
-        <div class="goutte"></div>
-        <p class="info"></p>
-    </div>
     <?php
     /**
      * @var string $cheminCorpsVue
