@@ -14,6 +14,11 @@ echo $cheminCSS;
         echo $titre; ?></title>
 </head>
 <body>
+<header>
+    <?php
+    include("nav.php");
+    ?>
+</header>
 <main>
     <?php
     /**

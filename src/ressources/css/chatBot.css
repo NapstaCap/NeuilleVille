@@ -44,6 +44,108 @@ header {
     flex-shrink: 0;
 }
 
+nav {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 3%;
+}
+
+nav > div {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+nav > div > a {
+    position: relative;
+    display: block;
+    text-align: left;
+    background-color: transparent;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.active, #menu2 div > .active{
+    color: orange;
+}
+#menu2 a{
+    position: relative;
+    display: block;
+    text-align: left;
+    background-color: transparent;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+nav > div > a:hover {
+    text-decoration: underline;
+}
+
+/*  sous menu */
+.submenu {
+    position: absolute;
+    color: white;
+    text-decoration: none;
+    display: none;
+    width: 150%;
+    border-radius: 10px;
+}
+
+.submenu a {
+    color: white;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.submenu > div {
+    justify-content: center;
+}
+
+nav > div:hover .submenu {
+    display: block;
+}
+#menu2 > div:hover .submenu {
+    display: block;
+}
+
+/* Sous sous menu */
+.subsubmenu {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    left: 50px;
+    color: white;
+    text-decoration: none;
+    display: none;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.subsubmenu a {
+    color: white;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.subsubmenu > div {
+    display: flex;
+}
+
+nav > div div div:hover .subsubmenu {
+    display: block;
+}
+#menu2 > div div div:hover .subsubmenu {
+    display: block;
+}
+
+/* Tout le responsive */
+.burger {
+    display: none;
+}
 #chatbox {
     width: 100%;
     max-width: 650px;
@@ -427,4 +529,7 @@ footer {
     font-size: 0.8em;
     border-top: 3px dashed var(--old-leather);
     box-shadow: 0 -4px 6px rgba(0,0,0,0.3);
+}
+footer p {
+    margin:0px;
 }
